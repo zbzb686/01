@@ -1,0 +1,5 @@
+# 本项目的直接依赖；先按 README 安装官方 CUDA 13.0 版 PyTorch，再安装本文件。
+torch==2.11.0  # 固定计算框架版本；可匹配已经安装的 2.11.0+cu130 构建。
+torchvision==0.26.0  # 与 PyTorch 2.11.0 配对，提供图像处理和 ResNet 等组件。
+lerobot[training]==0.6.1  # 安装固定版本的机器人学习工具及数据读取、训练依赖。
+numpy==2.2.6  # 固定当前已验证版本，同时满足 LeRobot 的 NumPy 版本范围。
