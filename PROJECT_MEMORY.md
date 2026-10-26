@@ -119,13 +119,15 @@
 
 ## 7. GitHub 与协作状态
 
-2026-10-26 用户已亲手执行 `git init -b main`，终端报告在 `E:/项目一/.git/` 初始化成功。用户的 `git status --short` 输出包含脚本、文档和依赖清单，没有 `.venv`、`data`、`outputs`，忽略规则符合预期。助手随后只读核对 `git status --short --branch`，确认 `No commits yet on main`，所有项目文件仍未跟踪。尚未创建本地提交；尚未收到远程仓库创建、配置或推送的结果，不能视作已上传。GitHub 仓库名称、地址和可见性仍待用户确定。
+2026-10-26 用户已亲手执行 `git init -b main`，在 `E:/项目一/.git/` 初始化成功。用户的文件清单没有 `.venv`、`data`、`outputs`，忽略规则符合预期。用户随后成功创建首次本地提交 `436f4ff`，说明为 `Initial ACT learning project and shared memory`，共 15 个文件、746 行新增内容。助手只读核对 HEAD 和仓库状态，确认分支 main、提交编号一致，且本次文档更新前工作区干净。Git 的 LF/CRLF 提示未阻止提交。
+
+用户已提供目标仓库：`https://github.com/zbzb686/01.git`（owner=zbzb686，name=01）。GitHub 连接的只读 API 返回 404，不能据此认定仓库不存在或确定其可见性。助手随后使用本机 Git 只读执行 ls-remote --symref，成功返回且没有任何引用记录，确认当时仓库可访问且没有分支或标签。检查时本地尚未配置远程仓库，当前只有本记忆文件存在未提交修改；没有执行远程写入或推送，仍不能视作已上传。
 
 本次已准备：`CLAUDE.md`、本交接文件、`README.md`、`.gitignore`、`requirements.txt`、`requirements-windows-lock.txt` 与 `GITHUB_GUIDE.md`。完整依赖快照记录了当前 Windows 环境中的 77 个包版本，不代表已在另一台电脑复现通过。
 
 用户随后回复提交署名“已设置”。助手只读执行 `git var GIT_AUTHOR_IDENT` 并隐藏具体署名，确认当前仓库可取得有效作者信息；不在项目记忆中保存用户的姓名和邮箱。
 
-当前下一小步：让用户执行 `git add .` 暂存项目文件，再用 `git diff --cached --stat` 查看第一次提交的文件清单与改动规模，确认没有数据、虚拟环境或凭据。尚未收到暂存结果，不能视作已经完成；清单确认后再创建首次本地提交，然后创建远程空仓库并推送。
+当前下一小步：让用户依次提交本次 `PROJECT_MEMORY.md` 修改、添加 origin=https://github.com/zbzb686/01.git，再运行 git push -u origin main 完成首次上传。收到推送成功输出并核对后，才能记录已上传。仓库若在后续发生变化导致推送被拒绝，先检查远程历史并保留双方内容，不强制覆盖。
 
 日常流程：保存修改 → 查看差异 → 运行相关检查 → 更新本记忆中的进度 → commit → push。GitHub 不会自动同步每次按键；本地保存、提交、上传是不同步骤。切换助手前先结束旧助手的编辑任务，同一文件避免并发修改。
 
