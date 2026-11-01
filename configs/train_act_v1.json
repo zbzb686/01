@@ -1,0 +1,16 @@
+{
+  "resume_from": null,
+  "split_path": "configs/pusht_split_v1.json",
+  "stats_path": "configs/pusht_train_stats_v1.json",
+  "output_dir": "outputs/act_train_val",
+  "seed": 0,
+  "total_steps": 1000,
+  "val_interval": 200,
+  "batch_size": 4,
+  "chunk_size": 10,
+  "fps": 10,
+  "learning_rate": 0.00001,
+  "weight_decay": 0.0001,
+  "device": "cuda",
+  "pretrained_backbone_weights": null
+}

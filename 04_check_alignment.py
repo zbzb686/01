@@ -1,17 +1,10 @@
 from pathlib import Path  # 导入路径工具，用于确定文件保存位置。
 
 import pandas as pd  # 导入 pandas，用于读取和查看表格。
-from huggingface_hub import hf_hub_download  # 导入下载函数，获取示范位置记录。
-
+from pusht_project.data_io import download_dataset_file  # 复用统一的数据文件获取函数。
 root = Path(__file__).parent  # 获取当前脚本所在的项目文件夹。
 
-meta_path = hf_hub_download(  # 下载记录各段示范位置的元数据表。
-    repo_id="lerobot/pusht",  # 指定 PushT 数据集仓库。
-    repo_type="dataset",  # 指定仓库类型为数据集。
-    revision="7628202a2180972f291ba1bc6723834921e72c19",  # 固定为前面使用的数据版本。
-    filename="meta/episodes/chunk-000/file-000.parquet",  # 指定示范级别的元数据文件。
-    local_dir=root / "data" / "pusht",  # 保存到项目内已有的数据目录。
-)  # 结束下载调用，得到元数据表的本地路径。
+meta_path = download_dataset_file("meta/episodes/chunk-000/file-000.parquet")  # 调用统一下载函数，获取元数据表文件。
 
 episodes = pd.read_parquet(meta_path)  # 读取元数据表；这里每行描述一整段示范。
 

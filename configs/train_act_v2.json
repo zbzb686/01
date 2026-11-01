@@ -1,0 +1,16 @@
+{
+  "resume_from": "outputs/act_train_val_v2/20261029_060540_204544/training_checkpoint.pt",
+  "split_path": "configs/pusht_split_v2.json",
+  "stats_path": "configs/pusht_train_stats_v2.json",
+  "output_dir": "outputs/act_train_val_v2",
+  "seed": 0,
+  "total_steps": 32000,
+  "val_interval": 200,
+  "batch_size": 4,
+  "chunk_size": 10,
+  "fps": 10,
+  "learning_rate": 0.00001,
+  "weight_decay": 0.0001,
+  "device": "cuda",
+  "pretrained_backbone_weights": "ResNet18_Weights.IMAGENET1K_V1"
+}

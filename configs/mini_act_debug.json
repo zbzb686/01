@@ -1,0 +1,30 @@
+{
+    "seed":0,
+    "device":"cuda",
+    "output_dir": "outputs/mini_act_debug",
+    "module":{"image_channels": 3,
+    "image_height": 96,
+    "image_width": 96,
+    "backbone_channels": 8,
+    "state_dim":2,
+    "action_dim":2,
+    "token_dim": 64,
+    "num_head": 4,
+    "num_hidden": 256,
+    "action_count": 3,
+    "encoder_layer": 2,
+    "decoder_layer": 1,
+    "latent_dim": 8,
+    "vae_layers": 2
+    },
+    "optimizer":{"name":"sgd",
+    "learning_rate": 0.01,
+    "weight_decay": 0.0,
+    "momentum": 0.0
+    },
+    "training":{
+        "step":20,
+        "batch_size":2,
+        "kl_weight": 10.0
+    }
+}
